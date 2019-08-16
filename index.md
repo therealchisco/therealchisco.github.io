@@ -46,10 +46,76 @@ hacen los ingenieros de software, por eso la misión de este trabajo es:
 >* Cuales son los retos a la hora de escribir buen algoritmo?
 
 Existen también ingenieros de software que no tienen muy clara la conexión que existe entre su carrera y
-la matemática analítica, pretendemos recordarle a estos:
+la matemática analítica, por eso además nuestro proyecto pretende
 
+>Poder mostrarle a los ingenieros familiarizados con el software:
 > * Como pueden empezar a usar el cálculo para mejorar el soware que escriben
-> * Motivar a los estudiantes a considerar utilizar un enfoque matemático a la hora de investigar
+> * Motivar a los estudiantes a considerar utilizar un enfoque matemático a la hora de investigar temas de software y no únicamente la parte más técnica de lenguajes de programación
+
+
+# I Parte - Optimización de Algoritmos
+
+A continuación encontrara un video con información sobre el tema, tambien podra encontrar toda la infromación en forma de texto
+
+## Video 
+
+## Medidas de Eficiencia
+
+### Objetivo:
+* Describir de manera exacta pero simplificada el desempeño de un Algoritmo.
+La especificación exacta del tiempo de ejecución de un algoritmo esta defininda por una operación de
+estructuras discretas
+* Conjunto I de las Instancias
+* Tiempo de Ejecución del Algoritmo: T : I ! N
+Problema:
+
+T es muy difícil de determinar y describir
+
+### Solución
+
+Agrupación de las instancias (por tamaño)
+Dado el conjunto de Instancias In de tamaño n de un problema, podemos medir la eficiencia y determinar:
+
+### Worst case:
+* Nos garantiza la eficiencia del algoritmo, pero posiblemente con una aproximación demasiado pesimista
+t(n) = max {T(i) : i 2 In}
+
+### Average case:
+* Nos da el tiempo de ejecución promedio, pero este no corresponde necesariamente al tiempo real en
+la práctica
+
+### Best case:
+* Comparable al worst case, nos da una aproximación posiblemente demasiado optimista
+t(n) = min {T(i) : i 2 In}
+* Nos aseguramos que I sea finito y que el minimo y máximo elemento existan
+
+**Las ecuaciones exactas para t(n) son demasiado complejas sino imposibles para esto
+utilizamos:**
+
+## Crecimiento asintótico
+f(n) y g(n) tienen el mismo índice de crecimiento, si la proporción esta delimitada por constantes c
+y d
+9c, d 2 R+ 9n0 2 N 8n  n0 : c 
+f(n)
+g(n)  d
+f(n) crece más rápido que g(n) cuando exista un n0 para todos las constantes positivas c , a partir de
+f(n)  c · g(n) para n  n0
+8c 2 R+ 9n0 2 N 8n  n0 : f(n)  c · g(n)
+
+
+O en otras palabras
+lim
+x!1
+g(n)
+f(n) = 0
+Conjuntos para la formalización de la notación asintótico
+O(f(n)) : {g(n) : 9c > 0 : 9n0 > 0 : 8n  n0 : g(n)  c · f(n))}
+
+(f(n)) : {g(n) : 9c > 0 : 9n0 > 0 : 8n  n0 : g(n)  c · f(n))}
+(f(n)) = O(f(n)) \ 
+(f(n))
+o(f(n)) : {g(n) : 8c > 0 : 9n0 > 0 : 8n  n0 : g(n)  c · f(n))}
+!(f(n)) : {g(n) : 8c > 0 : 9n0 > 0 : 8n  n0 : g(n)  c · f(n))}
 
 
 ### Markdown

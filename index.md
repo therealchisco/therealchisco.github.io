@@ -23,7 +23,7 @@ que tan sofisticado o moderno sea el Hardware donde corre.
 Como ingenieros es aquí donde los conocimientos adquiridos en el curso de “Cálculo I” (BMAT-01)
 resultan altamente útiles para poder por ejemplo:
 
-* Analizar los limites de dos piezas de soware para determinar cual será más rápido
+* Analizar los limites de dos piezas de software para determinar cual será más rápido
 
 * Utilizar derivación para poder saber cual será el tiempo de ejecución de un algoritmo en el peor y mejor de los casos.
 
@@ -35,9 +35,22 @@ por ejemplo:
 * La definición del teorema de números primos se puede probar buscando un limite
 * Para probar la seguridad de este algoritmo es necesario solucionar varias integrales
 
-You can use the [editor on GitHub](https://github.com/therealchisco/therealchisco.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+## Justificación del Tema
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Existe mucha gente incluso dentro de las otras áreas de ingeniera que no esta familiarizada con lo que
+hacen los ingenieros de software, por eso la misión de este trabajo es:
+
+>Poder explicar brevemente y poner en contexto a estos grupos explicando
+>* Que significa programar
+>* Que es un algoritmo
+>* Cuales son los retos a la hora de escribir buen algoritmo?
+
+Existen también ingenieros de software que no tienen muy clara la conexión que existe entre su carrera y
+la matemática analítica, pretendemos recordarle a estos:
+
+> * Como pueden empezar a usar el cálculo para mejorar el soware que escriben
+> * Motivar a los estudiantes a considerar utilizar un enfoque matemático a la hora de investigar
+
 
 ### Markdown
 

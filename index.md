@@ -1,15 +1,40 @@
+
 <iframe src="https://drive.google.com/file/d/1GFIEJ3l44nP9QJTn2KG4RopPS7YmAA0f/preview" width="640" height="480"></iframe>
 
 
 # Aplicaciones del Cálculo en la Ingenieria de Software: Optimización de Algoritmos y Métodos Criptográficos
 
-## Abstracción
+
+### Tabla de Contenido
+1. [Abstracción](#abs)
+2. [Introduccion](#intro)
+3. [Justificación del Tema](#just)
+4. [**Parte I**:Optimización de Algoritmos](algos.md)
+  * [Video: Algoritmos](https://drive.google.com/file/d/1aKWFb39mYadUy1dHeEDyjhmmtiCBrhZ-/view?usp=sharing)
+5. [**Parte II**:Optimización de Algoritmos](cripto.md)
+  * [Video: Criptografia RSA](https://drive.google.com/file/d/1aKWFb39mYadUy1dHeEDyjhmmtiCBrhZ-/view?usp=sharing)
+6. [Descarga Archivo PDF](trabajo.pdf)
+
+### Miembros de Equipo
+1. [Francisco J. Diaz](github.com/therealchisco)
+2. [Introduccion](#intro)
+3. [Justificación del Tema](#just)
+4. [**Parte I**:Optimización de Algoritmos](algos.md)
+  * [Video: Algoritmos](https://drive.google.com/file/d/1aKWFb39mYadUy1dHeEDyjhmmtiCBrhZ-/view?usp=sharing)
+5. [**Parte II**:Optimización de Algoritmos](cripto.md)
+  * [Video: Criptografia RSA](https://drive.google.com/file/d/1aKWFb39mYadUy1dHeEDyjhmmtiCBrhZ-/view?usp=sharing)
+6. [Descarga Archivo PDF](trabajo.pdf)
+
+
+
+
+## Abstracción <a name="abs"></a>
 
 Aqui encontrará una explicación de la importancia que los conocimientos matemáticos juegan en la ingeniería de so-
 ware. Utilizamos ejemplos simplificados para hacer los conceptos accesibles a gente no familiarizada
 con el campo.
 
-## Introducción
+## Introducción <a name="intro"></a>
 
 El poder de los computadores ha crecido de forma exponencial en las ultimas décadas, (un celular
 de hoy, es significativamente más avanzado que el ordenador a bordo del Apollo 11) sin embargo no
@@ -35,7 +60,7 @@ por ejemplo:
 * La definición del teorema de números primos se puede probar buscando un limite
 * Para probar la seguridad de este algoritmo es necesario solucionar varias integrales
 
-## Justificación del Tema
+## Justificación del Tema <a name="just"></a>
 
 Existe mucha gente incluso dentro de las otras áreas de ingeniera que no esta familiarizada con lo que
 hacen los ingenieros de software, por eso la misión de este trabajo es:

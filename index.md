@@ -4,10 +4,10 @@
 1. [Abstracción](#abs)
 2. [Introduccion](#intro)
 3. [Justificación del Tema](#just)
-4. [**Parte I**:Optimización de Algoritmos](algos.md)
+4. [**Parte I**: Optimización de Algoritmos](algos.md)
  * [Video: Algoritmos](https://drive.google.com/file/d/1aKWFb39mYadUy1dHeEDyjhmmtiCBrhZ-/view?usp=sharing)
-5. [**Parte II**:Optimización de Algoritmos](cripto.md)
-  * [Video: Criptografia RSA](https://drive.google.com/file/d/1aKWFb39mYadUy1dHeEDyjhmmtiCBrhZ-/view?usp=sharing)
+5. [**Parte II**: Métodos Criptográficos](cripto.md)
+  * [Video: Método RSA](https://drive.google.com/file/d/1aKWFb39mYadUy1dHeEDyjhmmtiCBrhZ-/view?usp=sharing)
 6. [Descarga Archivo PDF](trabajo.pdf)
 
 ### Miembros de Equipo 

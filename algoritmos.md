@@ -9,7 +9,7 @@ La especificación exacta del tiempo de ejecución de un algoritmo esta definind
 estructuras discretas
 * Conjunto I de las Instancias
 * Tiempo de Ejecución del Algoritmo: T : I ! N
-<img src="https://latex.codecogs.com/png.latex?T: I \to N" /> 
+<img src="https://latex.codecogs.com/gif.latex?T:&space;I&space;\to&space;\mathbb{N}" title="T: I \to \mathbb{N}" />
 
 ### Problema:
 T es muy difícil de determinar y describir

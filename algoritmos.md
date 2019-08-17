@@ -47,3 +47,9 @@ f(n) y g(n) tienen el mismo índice de crecimiento, si la proporción esta delim
 f(n) **crece más rápido** que g(n) cuando:
 
 <img src="https://latex.codecogs.com/gif.latex?\forall&space;c&space;\in&space;\mathbb{N_{&plus;}}&space;\&space;\&space;\exists&space;n_{0}&space;\in&space;\mathbb{N}&space;\&space;\&space;\forall&space;n&space;\geq&space;n_{0}:&space;f(n)&space;\geq&space;c&space;\cdot&space;g(n)" title="\forall c \in \mathbb{N_{+}} \ \ \exists n_{0} \in \mathbb{N} \ \ \forall n \geq n_{0}: f(n) \geq c \cdot g(n)" />
+
+**O en otras palabras**
+<img src="https://latex.codecogs.com/gif.latex?\lim_{x\to\infty}&space;{g(n)&space;\over&space;f(n)}&space;=&space;0" title="\lim_{x\to\infty} {g(n) \over f(n)} = 0" />
+
+Para más información por favor ver el articulo completo en pdf
+## [Descargar PDF](articulo.pdf)

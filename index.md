@@ -6,7 +6,7 @@
 3. [Justificación del Tema](#just)
 4. [**Parte I**: Optimización de Algoritmos](algoritmos.md)
  * [Video: Algoritmos](https://drive.google.com/file/d/1aKWFb39mYadUy1dHeEDyjhmmtiCBrhZ-/view?usp=sharing)
-5. [**Parte II**: Métodos Criptográficos](cripto.md)
+5. [**Parte II**: Métodos Criptográficos](criptografia.html)
   * [Video: Método RSA](https://drive.google.com/file/d/1aKWFb39mYadUy1dHeEDyjhmmtiCBrhZ-/view?usp=sharing)
 6. [Descarga Archivo PDF](trabajo.pdf)
 

@@ -6,10 +6,13 @@
 3. [Justificación del Tema](#just)
 4. [**Parte I**: Optimización de Algoritmos](algoritmos.md)
  * [Video: Algoritmos](https://drive.google.com/file/d/1aKWFb39mYadUy1dHeEDyjhmmtiCBrhZ-/view?usp=sharing)
+ * [Descarga Archivo PDF](trabajo.pdf)
 5. [**Parte II**: Métodos Criptográficos](criptografia.html)
   * [Video: Método RSA](https://drive.google.com/file/d/1aKWFb39mYadUy1dHeEDyjhmmtiCBrhZ-/view?usp=sharing)
-6. [Descarga Archivo PDF](trabajo.pdf)
+  * [Descarga Archivo PDF](trabajo2.pdf)
+  * [Cálculo de Integral Desplazada](integral.pdf)
 
+  
 ### Miembros de Equipo 
 * **Francisco J. Diaz**
 * **John García Calvo**
@@ -86,3 +89,4 @@ la matemática analítica, por eso además nuestro proyecto pretende
 <iframe src="https://drive.google.com/file/d/1GFIEJ3l44nP9QJTn2KG4RopPS7YmAA0f/preview" width="640" height="480"></iframe>
 ### [Ver Más Web](criptografia.html)
 ### [Ver Más PDF](trabajo2.pdf)
+### [Ver Proceso de Cálculo de Integral Desplazada](integral.pdf)

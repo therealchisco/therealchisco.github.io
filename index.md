@@ -5,19 +5,20 @@
 2. [Introduccion](#intro)
 3. [Justificación del Tema](#just)
 4. [**Parte I**:Optimización de Algoritmos](algos.md)
-  * [Video: Algoritmos](https://drive.google.com/file/d/1aKWFb39mYadUy1dHeEDyjhmmtiCBrhZ-/view?usp=sharing)
+ * [Video: Algoritmos](https://drive.google.com/file/d/1aKWFb39mYadUy1dHeEDyjhmmtiCBrhZ-/view?usp=sharing)
 5. [**Parte II**:Optimización de Algoritmos](cripto.md)
   * [Video: Criptografia RSA](https://drive.google.com/file/d/1aKWFb39mYadUy1dHeEDyjhmmtiCBrhZ-/view?usp=sharing)
 6. [Descarga Archivo PDF](trabajo.pdf)
 
 ### Miembros de Equipo 
-* **Francisco J. Diaz
-* **John García Calvo
-* **Roberto Vindas Hernández
-* **Weslin Mena Montero
+* **Francisco J. Diaz**
+* **John García Calvo**
+* **Roberto Vindas Hernández**
+* **Weslin Mena Montero**
 
 ### Profesora
 
+**Ilieva Stefanov**
 
 ## Abstracción <a name="abs"></a>
 

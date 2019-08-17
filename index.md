@@ -1,9 +1,4 @@
-
-<iframe src="https://drive.google.com/file/d/1GFIEJ3l44nP9QJTn2KG4RopPS7YmAA0f/preview" width="640" height="480"></iframe>
-
-
 # Aplicaciones del Cálculo en la Ingenieria de Software: Optimización de Algoritmos y Métodos Criptográficos
-
 
 ### Tabla de Contenido
 1. [Abstracción](#abs)
@@ -15,17 +10,13 @@
   * [Video: Criptografia RSA](https://drive.google.com/file/d/1aKWFb39mYadUy1dHeEDyjhmmtiCBrhZ-/view?usp=sharing)
 6. [Descarga Archivo PDF](trabajo.pdf)
 
-### Miembros de Equipo
-1. [Francisco J. Diaz](github.com/therealchisco)
-2. [Introduccion](#intro)
-3. [Justificación del Tema](#just)
-4. [**Parte I**:Optimización de Algoritmos](algos.md)
-  * [Video: Algoritmos](https://drive.google.com/file/d/1aKWFb39mYadUy1dHeEDyjhmmtiCBrhZ-/view?usp=sharing)
-5. [**Parte II**:Optimización de Algoritmos](cripto.md)
-  * [Video: Criptografia RSA](https://drive.google.com/file/d/1aKWFb39mYadUy1dHeEDyjhmmtiCBrhZ-/view?usp=sharing)
-6. [Descarga Archivo PDF](trabajo.pdf)
+### Miembros de Equipo 
+* **Francisco J. Diaz
+* **John García Calvo
+* **Roberto Vindas Hernández
+* **Weslin Mena Montero
 
-
+### Profesora
 
 
 ## Abstracción <a name="abs"></a>

@@ -1,7 +1,7 @@
-site: Personal Jekyll Theme
+site: Chisco
 
 url: therealchisco.github.io
-baseurl: therealchisco.github.io 
+baseurl: 
 
 collections:
   pages:

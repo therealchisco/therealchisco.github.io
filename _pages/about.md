@@ -8,33 +8,26 @@ featured_image: /images/demo/about.jpg
 
 I am a software developer with a strong background in computer science. I enjoy finding elegant and clean solutions to real-world software engineering challanges by applying the theoretical knowledge and practical skills I've acquired over many years.
 
-I 
+I strive to learn something new everyday and to share 
 
 
-## Some Skills (technical) 
 
-* Java EE
+## Skills 
+
+* ### technical
+    * Java EE
 
 * Pyton2/3
-    * Flask
-    * PEP8
-
-* GNU/Linux
-    * RHEP, CentOS, Debian, Ubuntu, Arch
-    * shell scripting / Automation
-    * TCP/IP / Netcat / 
-    * I always RTFM 
-
+* C++
+* VB
 * Javascript
-    * Functional paradigm
-    * React
-    * Typescript
-
+* GNU/Linux
 * PostgreSQL
 * MySQL
+* Azure
+* Aws
 
-
-## Get Personal
+### soft
 
 Personal is created and supported by [Jekyll Themes](https://jekyllthemes.io), and is available for $49.
 

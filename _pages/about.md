@@ -35,4 +35,4 @@ Over the years I've come to understand just how important team work and communit
 
 ### Feel free to download my CV for more information
 
-<a href="/docs/ChiscoCV.pdf" class="button button--large">Get My CV</a>
+<a href="../docs/ChiscoCV.pdf" class="button button--large">Get My CV</a>

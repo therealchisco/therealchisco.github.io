@@ -1,34 +1,38 @@
 ---
 title: Hello
 subtitle: I'm Chisco
-featured_image: /images/demo/about.jpg
+featured_image: /images/demo/me.jpg
 ---
 
 ## About me
 
 I am a software developer with a strong background in computer science. I enjoy finding elegant and clean solutions to real-world software engineering challanges by applying the theoretical knowledge and practical skills I've acquired over many years.
 
-I strive to learn something new everyday and to share 
+I strive to learn something new everyday by staying curious and asking the right questions, In turn  I try to communicate and share my knowledge with others in a clear way whenever I get a chance. _check out [my blog](/blog/) or [this ongoing project](http://google.com) to learn more_
+
+Over the years I've come to understand just how important team work and community are and for that reason I keep an open mind and  try to make most of [my side projects](/projects/) open source, no matter how small. Finally I'm proud to say that I contribute to [other projects](www.google.com) and initiatives I genuninely believe are the future.
 
 
+### These are some of technologies I'm most familiar with
 
-## Skills 
-
-* ### technical
-    * Java EE
-
+* Java EE
 * Pyton2/3
 * C++
 * VB
-* Javascript
 * GNU/Linux
 * PostgreSQL
 * MySQL
 * Azure
-* Aws
+* Docker
 
-### soft
+### These are some soft skills I have and I'm always trying to strengthen
 
-Personal is created and supported by [Jekyll Themes](https://jekyllthemes.io), and is available for $49.
+* Creative Problem Solving
+* Cross-Cultural Communication
+* Analytical Thinking
+* Learning Quickly
+* Self-motivation
 
-<a href="https://jekyllthemes.io/theme/personal-website-jekyll-theme" class="button button--large">Get This Theme</a>
+### Feel free to download my CV for more information
+
+<a href="/docs/ChiscoCV.pdf" class="button button--large">Get My CV</a>

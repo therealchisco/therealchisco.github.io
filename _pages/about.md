@@ -1,29 +1,38 @@
 ---
-title: About me
-subtitle: Personal is the perfect theme for developers, designers and other creatives.
-description: Personal is the perfect theme for developers, designers and other creatives.
+title: Hello
+subtitle: I'm Chisco
 featured_image: /images/demo/about.jpg
 ---
 
-## Features
+## About me
 
-We've packed Personal full of powerful features to help showcase your work:
+I am a software developer with a strong background in computer science. I enjoy finding elegant and clean solutions to real-world software engineering challanges by applying the theoretical knowledge and practical skills I've acquired over many years.
 
-* Beautiful, minimal design
-* Large header image and single column post layout
-* Responsive – works perfectly on all devices
-* Portfolio post type
-* Blog with pagination
-* Sleek Ajax navigation and page transitions
-* Unique 'gallery' feature for image grids and carousels
-* Built-in contact form with Formspree integration
-* Full markdown support and code highlighting
-* Social media icons
-* Fast page rendering
-* Built with SEO best practices in mind
-* Customize everything – colors, spacing, fonts, sizes etc. – via a simple settings file
-* Works with GitHub Pages
-* Updated and supported by the developers
+I 
+
+
+## Some Skills (technical) 
+
+* Java EE
+
+* Pyton2/3
+    * Flask
+    * PEP8
+
+* GNU/Linux
+    * RHEP, CentOS, Debian, Ubuntu, Arch
+    * shell scripting / Automation
+    * TCP/IP / Netcat / 
+    * I always RTFM 
+
+* Javascript
+    * Functional paradigm
+    * React
+    * Typescript
+
+* PostgreSQL
+* MySQL
+
 
 ## Get Personal
 

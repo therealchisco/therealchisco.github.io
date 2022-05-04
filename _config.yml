@@ -1,0 +1,19 @@
+name: Chisco's Personal Site
+description: A handwritten blog about nothing
+meta_description: "Chisco's unabridged ramblings"
+
+markdown: kramdown
+highlighter: rouge
+logo: false
+paginate: 15
+baseurl: 
+domain_name: "http://www.chisco.org"
+google_analytics: "UA-XXXXXXXX-X"
+plugins: [jekyll-paginate]
+
+# Details for the RSS feed generator
+url: ""
+author: "Chisco"
+
+# Disqus config
+disqus-shortname: ""

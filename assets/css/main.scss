@@ -17,3 +17,13 @@
 .page-title img { height: 11rem; max-width: 100%; }
 .page-description img { height: 4.4rem; max-width: 100%; }
 .page-description a img { height: 2.6rem; margin-top: 0.8rem; }
+
+/* Dot-grid notebook paper background */
+$paper: #ebe3d5;
+body {
+	background: $paper radial-gradient(circle, #b9ab96 1.2px, transparent 1.6px);
+	background-size: 26px 26px;
+}
+.no-cover.main-header { background: transparent; }
+/* these pseudo-elements punch gaps in divider lines; repaint them paper instead of white */
+.post:after, .extra-pagination:after { background: $paper; box-shadow: $paper 0 0 0 5px; border-color: #cfc3b0; }

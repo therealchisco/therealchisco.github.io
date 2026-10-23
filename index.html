@@ -16,10 +16,10 @@ about: 'about.html'
     </nav>
     <div class="vertical">
         <div class="main-header-content inner">
-            <h1 class="page-title">{{ site.name }}</h1>
+            <h1 class="page-title"><img src="{{ '/assets/images/header-title.svg' | relative_url }}" alt="{{ site.name }}"></h1>
             <h2 class="page-description">
-                {% if site.description %} {{ site.description }}. {% endif %}
-                {% if page.about %} <a href='{{page.about | relative_url}}'> <br>whoami</a> {% endif %}
+                {% if site.description %} <img src="{{ '/assets/images/header-tagline.svg' | relative_url }}" alt="{{ site.description }}."> {% endif %}
+                {% if page.about %} <a href='{{page.about | relative_url}}'> <br><img src="{{ '/assets/images/header-whoami.svg' | relative_url }}" alt="whoami"></a> {% endif %}
             </h2>
         </div>
     </div>

@@ -12,3 +12,8 @@
 @import
 	"syntax"
 ;
+
+/* Handwritten homepage header (assets/images/header-*.svg) */
+.page-title img { height: 11rem; max-width: 100%; }
+.page-description img { height: 4.4rem; max-width: 100%; }
+.page-description a img { height: 2.6rem; margin-top: 0.8rem; }

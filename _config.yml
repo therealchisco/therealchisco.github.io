@@ -17,3 +17,6 @@ author: "Chisco"
 
 # Disqus config
 disqus-shortname: ""
+
+# Local tooling, not part of the site
+exclude: [scripts, CLAUDE.md, "*.svgz"]

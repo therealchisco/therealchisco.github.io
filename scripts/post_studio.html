@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Post Studio</title>
+<style>
+  :root { --paper: #ebe3d5; --dot: #b9ab96; --ink: #2b2620; --muted: #7a6e5e; --line: #cfc3b0; --accent: #8a5a2b; --card: rgba(255,253,248,.7); }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font: 15px/1.5 -apple-system, system-ui, sans-serif; color: var(--ink);
+    background: var(--paper) radial-gradient(circle, var(--dot) 1.2px, transparent 1.6px); background-size: 26px 26px;
+  }
+  main { max-width: 980px; margin: 0 auto; padding: 32px 16px 80px; }
+  h1 { font-size: 26px; margin: 0; }
+  .top { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-bottom: 20px; }
+  .top h1 { flex: 1; min-width: 10em; }
+  .top select { max-width: 100%; }
+  #mode { font-size: 13px; color: var(--muted); width: 100%; }
+  .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; margin-bottom: 20px; }
+  .fields label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); }
+  .fields .wide { grid-column: 1 / -1; }
+  input, textarea, button, select { font: inherit; color: inherit; }
+  input[type=text], input[type=date], textarea, select { padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; background: #fffdf8; }
+  textarea { min-height: 90px; resize: vertical; width: 100%; }
+  .drops { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .drop {
+    border: 2px dashed var(--line); border-radius: 10px; padding: 28px 16px; text-align: center;
+    color: var(--muted); background: rgba(255,253,248,.55); cursor: pointer; transition: border-color .15s, background .15s;
+  }
+  .drop strong { display: block; color: var(--ink); font-size: 16px; margin-bottom: 4px; }
+  .drop.over { border-color: var(--accent); background: rgba(255,253,248,.9); }
+  .tabs { display: flex; gap: 0; margin: 24px 0 8px; }
+  .tabs button { border-radius: 0; }
+  .tabs button:first-child { border-radius: 6px 0 0 6px; }
+  .tabs button:last-child { border-radius: 0 6px 6px 0; margin-left: -1px; }
+  .tabs button[aria-pressed=true] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .block { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+  .block header { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .block header strong { flex: 1; min-width: 8em; font-weight: 600; overflow-wrap: anywhere; }
+  .num { color: var(--muted); font-variant-numeric: tabular-nums; }
+  .preview { background: var(--paper); border-radius: 6px; max-height: 70vh; overflow: auto; }
+  .preview svg, .preview img { display: block; width: 100%; height: auto; }
+  .block.busy .preview { opacity: .4; }
+  .knobs { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 10px; font-size: 13px; color: var(--muted); }
+  .knobs label { display: flex; align-items: center; gap: 8px; }
+  .knobs output { min-width: 3ch; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .alt { display: flex; align-items: center; gap: 8px; margin-top: 10px; font-size: 13px; color: var(--muted); }
+  .alt input { flex: 1; }
+  .gap { display: flex; justify-content: center; gap: 8px; padding: 6px 0; opacity: .55; transition: opacity .15s; }
+  .gap:hover, .gap:focus-within { opacity: 1; }
+  .gap button { font-size: 12px; padding: 2px 10px; border-style: dashed; background: transparent; }
+  button { padding: 6px 12px; border: 1px solid var(--line); border-radius: 6px; background: #fffdf8; cursor: pointer; }
+  button:hover { border-color: var(--accent); }
+  button:disabled { opacity: .5; cursor: default; }
+  #create { background: var(--ink); color: var(--paper); border-color: var(--ink); padding: 10px 20px; font-weight: 600; margin-top: 20px; }
+  #status { margin-left: 12px; }
+  #status.err { color: #a3361f; }
+
+  /* Preview mode: roughly the site's post layout */
+  #post { max-width: 710px; margin: 0 auto; padding: 24px 0 40px; font-family: Georgia, "Merriweather", serif; font-size: 18px; line-height: 1.75; }
+  #post .p-title { font-family: "Open Sans", system-ui, sans-serif; font-size: 40px; font-weight: 700; letter-spacing: -1px; line-height: 1.2; margin: 0 0 6px; }
+  #post .p-meta { font-family: system-ui, sans-serif; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 24px; }
+  #post h1, #post h2, #post h3 { font-family: "Open Sans", system-ui, sans-serif; line-height: 1.2; }
+  #post svg, #post img { display: block; width: 100%; height: auto; margin: 0 0 1.75em; }
+  #post a { color: var(--accent); }
+  #post .empty { color: var(--muted); font-style: italic; }
+  [hidden] { display: none !important; }
+  @media (max-width: 640px) { .fields, .drops { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <h1>Post Studio</h1>
+    <select id="open" aria-label="Open existing post"><option value="">Open existing post…</option></select>
+    <button id="new">New post</button>
+    <div id="mode">New post</div>
+  </div>
+  <div class="fields">
+    <label>Title (home page list + URL)<input id="title" type="text" required></label>
+    <label>Heading at the top of the post (optional)<input id="heading" type="text"></label>
+    <label>Category<input id="category" type="text" value="Self"></label>
+    <label>Date<input id="date" type="date"></label>
+    <label class="wide">Transcript (optional, collapsible on the post, first line becomes the excerpt)<textarea id="transcript"></textarea></label>
+  </div>
+
+  <div class="drops">
+    <div class="drop" data-as="scan" tabindex="0" role="button"><strong>Scans</strong>Handwritten pages, traced into ink.<br>
+      .jpg .png .heic .pdf, or Write .svgz</div>
+    <div class="drop" data-as="photo" tabindex="0" role="button"><strong>Photos</strong>Embedded as-is (resized, location data stripped).<br>
+      .jpg .png .heic .pdf</div>
+  </div>
+  <input id="files" type="file" multiple accept=".jpg,.jpeg,.png,.heic,.pdf,.svgz" hidden>
+
+  <div class="tabs" role="group" aria-label="View">
+    <button id="tab-edit" aria-pressed="true">Edit</button>
+    <button id="tab-preview" aria-pressed="false">Preview post</button>
+  </div>
+  <div id="blocks"></div>
+  <article id="post" hidden></article>
+
+  <button id="create">Create post</button><span id="status" role="status"></span>
+</main>
+
+<script>
+const $ = s => document.querySelector(s);
+// Post body in order. New uploads: scan/write {kind, id, name, params, height, body}, photo {kind, id, name, alt};
+// from an existing post: raw {kind, id, name, html} (drawing), image {kind, url, alt}; text {kind, text}
+const blocks = [];
+let editing = null;  // filename in _posts/ when editing an existing post
+let pick = { at: null, as: 'scan' };  // where the next picked files go (at: null = append)
+$('#date').value = new Date().toLocaleDateString('en-CA');
+
+function status(msg, err) { const s = $('#status'); s.className = err ? 'err' : ''; s.innerHTML = msg; }
+const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+
+async function api(path, body, ctype = 'application/json') {
+  const r = await fetch(path, { method: 'POST', headers: { 'Content-Type': ctype }, body });
+  const data = await r.json();
+  if (!r.ok && r.status !== 409) throw new Error(data.error || r.statusText);
+  return { status: r.status, data };
+}
+
+async function addFiles(files, at, as) {
+  let i = at ?? blocks.length;
+  for (const f of files) {  // sequential keeps drop order
+    status(`${as === 'photo' ? 'Adding' : 'Tracing'} ${esc(f.name)}…`);
+    try {
+      const { data } = await api(`/api/scan?as=${as}&name=` + encodeURIComponent(f.name), f, 'application/octet-stream');
+      const added = data.map(d => ({ ...d, alt: '' }));
+      blocks.splice(i, 0, ...added);
+      i += added.length;
+      render();
+      status('');
+    } catch (e) { status(`${esc(f.name)}: ${esc(e.message)}`, true); }
+  }
+}
+
+const KNOBS = [
+  ['threshold', 'Ink threshold', 0.5, 0.95, 0.01],
+  ['specks', 'Drop specks under (px)', 0, 80, 1],
+  ['trim', 'Trim edges (%)', 0, 10, 0.5],
+];
+
+const drawing = b => `<svg viewBox="0 0 920 ${b.height}" xmlns="http://www.w3.org/2000/svg">${b.body}</svg>`;
+const photoImg = b => `<img src="${b.kind === 'image' ? esc(b.url) : `/api/scan/${b.id}/photo`}" alt="${esc(b.alt)}">`;
+const show = b => b.kind === 'raw' ? b.html : b.kind === 'image' || b.kind === 'photo' ? photoImg(b) : drawing(b);
+
+function gap(i) {
+  const g = document.createElement('div');
+  g.className = 'gap';
+  g.innerHTML = '<button data-g="text">+ Text</button><button data-g="scan">+ Scan</button><button data-g="photo">+ Photo</button>';
+  g.onclick = e => {
+    if (e.target.dataset.g === 'text') { blocks.splice(i, 0, { kind: 'text', text: '' }); render(); $(`#blocks [data-i="${i}"] textarea`)?.focus(); }
+    if (['scan', 'photo'].includes(e.target.dataset.g)) { pick = { at: i, as: e.target.dataset.g }; $('#files').click(); }
+  };
+  return g;
+}
+
+function render() {
+  const box = $('#blocks');
+  box.innerHTML = '';
+  box.append(gap(0));
+  blocks.forEach((b, i) => {
+    const el = document.createElement('section');
+    el.className = 'block';
+    el.dataset.i = i;
+    el.innerHTML = `<header><span class="num">${i + 1}.</span><strong></strong>
+      <button data-a="up" ${i ? '' : 'disabled'} aria-label="Move up">↑</button>
+      <button data-a="down" ${i < blocks.length - 1 ? '' : 'disabled'} aria-label="Move down">↓</button>
+      <button data-a="rm">Remove</button></header>`;
+    el.querySelector('strong').textContent = { text: 'Text (markdown)', image: 'Image ' + b.url, raw: b.name + ' (existing)', photo: 'Photo: ' + b.name }[b.kind] || b.name;
+
+    if (b.kind === 'text') {
+      const ta = document.createElement('textarea');
+      ta.value = b.text;
+      ta.placeholder = 'Write a paragraph. Markdown works: **bold**, *italic*, [link](https://…), ## heading';
+      ta.oninput = () => b.text = ta.value;
+      el.append(ta);
+    } else {
+      const pv = document.createElement('div');
+      pv.className = 'preview';
+      pv.innerHTML = show(b);
+      el.append(pv);
+    }
+    if (['scan', 'photo', 'image'].includes(b.kind)) {
+      if (b.kind !== 'scan') {
+        const a = document.createElement('label');
+        a.className = 'alt';
+        a.innerHTML = 'Alt text (describe the photo) <input type="text">';
+        const input = a.querySelector('input');
+        input.value = b.alt;
+        input.oninput = () => b.alt = input.value;
+        el.append(a);
+      } else {
+        const k = document.createElement('div');
+        k.className = 'knobs';
+        for (const [key, label, min, max, step] of KNOBS) {
+          const l = document.createElement('label');
+          l.innerHTML = `${label} <input type="range" min="${min}" max="${max}" step="${step}" value="${b.params[key]}"> <output>${b.params[key]}</output>`;
+          const input = l.querySelector('input');
+          input.oninput = () => l.querySelector('output').textContent = input.value;
+          input.onchange = () => retrace(b, el, key, +input.value);
+          k.append(l);
+        }
+        el.append(k);
+      }
+    }
+    el.querySelector('header').onclick = e => {
+      const a = e.target.dataset.a;
+      if (a === 'rm') blocks.splice(i, 1);
+      else if (a === 'up') [blocks[i - 1], blocks[i]] = [blocks[i], blocks[i - 1]];
+      else if (a === 'down') [blocks[i + 1], blocks[i]] = [blocks[i], blocks[i + 1]];
+      else return;
+      render();
+    };
+    box.append(el, gap(i + 1));
+  });
+}
+
+async function retrace(b, el, key, value) {
+  el.classList.add('busy');
+  try {
+    const { data } = await api('/api/scan/' + b.id, JSON.stringify({ ...b.params, [key]: value }));
+    Object.assign(b, data);
+    render();
+  } catch (e) { status(esc(e.message), true); el.classList.remove('busy'); }
+}
+
+// Just enough markdown for the preview; Jekyll does the real rendering.
+function md(src) {
+  const inline = s => esc(s)
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, t, u) => /^(https?:|\/|#)/.test(u) ? `<a href="${u}">${t}</a>` : t);
+  return src.trim().split(/\n\s*\n/).map(p => {
+    const h = p.match(/^(#{1,3})\s+(.*)/);
+    return h ? `<h${h[1].length + 1}>${inline(h[2])}</h${h[1].length + 1}>` : `<p>${inline(p).replace(/\n/g, '<br>')}</p>`;
+  }).join('');
+}
+
+function renderPreview() {
+  const t = $('#transcript').value.trim();
+  const date = $('#date').value ? new Date($('#date').value + 'T12:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
+  let html = `<div class="p-title">${esc($('#title').value || 'Untitled')}</div>
+    <div class="p-meta">on ${esc($('#category').value || 'Self')} · ${date}</div>`;
+  if ($('#heading').value.trim()) html += `<h1>${esc($('#heading').value)}</h1>`;
+  if (t) html += `<details><summary>Transcript</summary>${md(t)}</details>`;
+  html += blocks.map(b => b.kind === 'text' ? md(b.text) : show(b)).join('');
+  if (!blocks.length) html += '<p class="empty">No blocks yet.</p>';
+  $('#post').innerHTML = html;
+}
+
+function setTab(preview) {
+  $('#tab-edit').setAttribute('aria-pressed', !preview);
+  $('#tab-preview').setAttribute('aria-pressed', preview);
+  $('#blocks').hidden = preview;
+  $('#post').hidden = !preview;
+  if (preview) renderPreview();
+}
+$('#tab-edit').onclick = () => setTab(false);
+$('#tab-preview').onclick = () => setTab(true);
+
+async function create(overwrite) {
+  const req = {
+    title: $('#title').value, heading: $('#heading').value, category: $('#category').value,
+    date: $('#date').value, transcript: $('#transcript').value, overwrite, file: editing,
+    blocks: blocks.map(b => ({
+      text: { type: 'text', text: b.text }, image: { type: 'image', url: b.url, alt: b.alt }, raw: { type: 'raw', id: b.id },
+    })[b.kind] || { type: 'scan', id: b.id, alt: b.alt }),
+  };
+  if (!req.title.trim()) return status('Add a title first.', true);
+  if (!req.blocks.length) return status('Add at least one block.', true);
+  $('#create').disabled = true;
+  try {
+    const { status: code, data } = await api('/api/post', JSON.stringify(req));
+    if (code === 409) {
+      status(`<code>${esc(data.exists)}</code> already exists. <button id="replace">Replace its body</button> (front matter, heading and transcript are kept)`);
+      $('#replace').onclick = () => create(true);
+      return;
+    }
+    const photos = data.photos ? ` and ${data.photos} photo${data.photos > 1 ? 's' : ''}` : '';
+    status(`${editing ? 'Saved' : 'Wrote'} <code>${esc(data.path)}</code>${photos}. <a href="${data.url}" target="_blank" rel="noopener">View post</a> (needs jekyll serve on 4719)`);
+    if (!editing) setEditing(data.file);  // further saves update this post in place
+  } catch (e) { status(esc(e.message), true); }
+  finally { $('#create').disabled = false; }
+}
+
+for (const drop of document.querySelectorAll('.drop')) {
+  const as = drop.dataset.as;
+  drop.onclick = () => { pick = { at: null, as }; $('#files').click(); };
+  drop.onkeydown = e => (e.key === 'Enter' || e.key === ' ') && drop.onclick();
+  drop.ondragover = e => { e.preventDefault(); drop.classList.add('over'); };
+  drop.ondragleave = () => drop.classList.remove('over');
+  drop.ondrop = e => { e.preventDefault(); drop.classList.remove('over'); addFiles([...e.dataTransfer.files], null, as); };
+}
+$('#files').onchange = e => { addFiles([...e.target.files], pick.at, pick.as); e.target.value = ''; };
+$('#create').onclick = () => create(false);
+
+function setEditing(file) {
+  editing = file;
+  $('#mode').innerHTML = file ? `Editing <code>_posts/${esc(file)}</code> (saves in place, URL stays the same)` : 'New post';
+  $('#create').textContent = file ? 'Save changes' : 'Create post';
+  $('#open').value = file || '';
+  if (file && ![...$('#open').options].some(o => o.value === file)) loadList(file);
+}
+
+async function loadList(select) {
+  const posts = await (await fetch('/api/posts')).json();
+  $('#open').innerHTML = '<option value="">Open existing post…</option>' +
+    posts.map(p => `<option value="${esc(p.file)}">${esc(p.file.slice(0, 10))} · ${esc(p.title)}</option>`).join('');
+  $('#open').value = select || editing || '';
+}
+
+function fill(p) {
+  for (const k of ['title', 'heading', 'category', 'date', 'transcript']) $('#' + k).value = p[k] || '';
+  blocks.splice(0, blocks.length, ...(p.blocks || []));
+  render();
+  if (!$('#post').hidden) renderPreview();
+}
+
+$('#open').onchange = async () => {
+  const file = $('#open').value;
+  if (!file) return;
+  status('Loading…');
+  try {
+    const r = await fetch('/api/posts/' + encodeURIComponent(file));
+    if (!r.ok) throw new Error((await r.json()).error);
+    fill(await r.json());
+    setEditing(file);
+    status('');
+  } catch (e) { status(esc(e.message), true); }
+};
+$('#new').onclick = () => {
+  fill({ category: 'Self', date: new Date().toLocaleDateString('en-CA') });
+  setEditing(null);
+  status('');
+};
+loadList();
+render();
+</script>
+</body>
+</html>
